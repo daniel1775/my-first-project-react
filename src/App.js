@@ -1,23 +1,15 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Box from "./views/Box";
 
 function App() {
+  const [ resultado, setResultado ] = useState(0);
+  const suma = (a, b) => setResultado(a+b);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Box suma={suma}></Box>
+      {resultado!==0 ? <p>El resultado es {resultado}</p> : undefined}
     </div>
   );
 }
